@@ -1,6 +1,6 @@
 {
   "name": "bianco.css",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "jsnext:main": "index.next.js",
@@ -17,18 +17,18 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/biancojs/@.git"
+    "url": "git+https://github.com/biancojs/css.git"
   },
   "keywords": [
     "es6",
     "es2015"
   ],
-  "author": "Gianluca Guarini <gianluca.guarini@gmail.com> (http://gianlucaguarini.com)",
+  "author": "Nils Solanki <hibatsu@gmail.com> (http://solanki.ch)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/biancojs/@/issues"
+    "url": "https://github.com/biancojs/css/issues"
   },
-  "homepage": "https://github.com/biancojs/@#readme",
+  "homepage": "https://github.com/biancojs/css#readme",
   "devDependencies": {
     "jsdom": "9.5.0",
     "jsdom-global": "2.1.0",
