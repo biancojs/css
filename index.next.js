@@ -3,7 +3,7 @@ import domToArray from 'bianco.dom-to-array'
 /**
  * Normalize the return values, in case of a single value we avoid to return an array
  * @param   { Array } values - list of values we want to return
- * @returns { Array|String|Boolean } either the whole list of values or the single one found
+ * @returns { Array|String|Boolean } either the whole list of values or the single one found.
  * @private
  */
 const normalize = values => values.length === 1 ? values[0] : values
@@ -11,17 +11,17 @@ const normalize = values => values.length === 1 ? values[0] : values
 /**
  * Sanitize the names of CSS properties
  * @param   { String } name - The human-readable name of the CSS property
- * @returns { String } the sanitized camel-case version
+ * @returns { String } the sanitized camel-case version.
  * @private
  */
 const sanitizeName = name => name === 'float' ? 'cssFloat' : name.replace(/(.+)-(.)/, (s, m1, m2) => m1 + m2.toUpperCase())
 
 /**
- * Parse all the nodes received to get/remove/check their attributes
+ * Parse all the nodes received to get/remove/check their properties.
  * @param   { HTMLElement|NodeList|Array } els    - DOM node/s to parse
- * @param   { String|Array }               names   - name or list of attributes
+ * @param   { String|Array }               names   - name or list of properties
  * @param   { String }                     value  - the value(s) that will be assigned
- * @returns { HTMLElement|NodeList|Array } the original array of elements passed to this function
+ * @returns { HTMLElement|NodeList|Array } the original array of elements passed to this function.
  * @private
  */
 function setStyles(els, names, value) {
@@ -35,16 +35,16 @@ function setStyles(els, names, value) {
 }
 
 /**
- * Set any attribute on a single or a list of DOM nodes
+ * Set any css property on a single node or a list of DOM nodes.
  * @param   { HTMLElement|NodeList|Array } els   - DOM node/s to parse
- * @param   { String|Object }              name  - either the name of the attribute to set
+ * @param   { String|Object }              name  - either the name of the property to set
  *                                                 or a list of properties as object key - value
- * @param   { String }                     value - the new value of the attribute (optional)
- * @returns { HTMLElement|NodeList|Array } the original array of elements passed to this function
+ * @param   { String }                     value - the new value of the property (optional)
+ * @returns { HTMLElement|NodeList|Array } the original array of elements passed to this function.
  *
  * @example
  *
- * import { set } from 'bianco.attr'
+ * import { set } from 'bianco.css'
  *
  * const img = document.createElement('img')
  *
@@ -63,14 +63,14 @@ export function set(els, name, value) {
 }
 
 /**
- * Get any attribute from a single or a list of DOM nodes
+ * Get any property from a single node or a list of DOM nodes.
  * @param   { HTMLElement|NodeList|Array } els   - DOM node/s to parse
- * @param   { String|Array }               names  - name or list of attributes to get
- * @returns { Array|String } list of the attributes found
+ * @param   { String|Array }               names  - name or list of properties to get
+ * @returns { Array|String } list of the properties found.
  *
  * @example
  *
- * import { get } from 'bianco.attr'
+ * import { get } from 'bianco.css'
  *
  * const img = document.createElement('img')
  *
@@ -95,22 +95,22 @@ export function get(els, names) {
 }
 
 /**
- * Remove any attribute from a single or a list of DOM nodes
+ * Remove any css property from a single node or a list of DOM nodes.
  * @param   { HTMLElement|NodeList|Array } els   - DOM node/s to parse
- * @param   { String|Array }               names  - name or list of attributes to remove
- * @returns { HTMLElement|NodeList|Array } the original array of elements passed to this function
+ * @param   { String|Array }               names  - name or list of properties to remove
+ * @returns { HTMLElement|NodeList|Array } the original array of elements passed to this function.
  *
  * @example
  *
- * import { remove } from 'bianco.attr'
+ * import { remove } from 'bianco.css'
  *
- * remove(img, 'width') // remove the width attribute
- *
- * // or also
- * remove(img, ['width', 'height']) // remove the width and the height attribute
+ * remove(img, 'width') // remove the width property
  *
  * // or also
- * remove([img1, img2], ['width', 'height']) // remove the width and the height attribute from both images
+ * remove(img, ['width', 'height']) // remove the width and the height property
+ *
+ * // or also
+ * remove([img1, img2], ['width', 'height']) // remove the width and the height property from both images
  */
 export function remove(els, names) {
   names = Array.isArray(names) ? names : [names]

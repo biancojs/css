@@ -13,7 +13,7 @@ This script will not be transpiled and it is only thought to be part of your bui
 ## Usage
 
 ```js
-importcss from 'bianco.css'
+import css from 'bianco.css'
 ```
 
 [travis-image]: https://img.shields.io/travis/biancojs/@.svg?style=flat-square
@@ -36,19 +36,19 @@ importcss from 'bianco.css'
 
 ### set
 
-Set any attribute on a single or a list of DOM nodes
+Set any css property on a single node or a list of DOM nodes.
 
 **Parameters**
 
 -   `els` **([HTMLElement](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) \| [NodeList](https://developer.mozilla.org/en-US/docs/Web/API/NodeList) \| [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array))** DOM node/s to parse
--   `name` **([String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** either the name of the attribute to set
+-   `name` **([String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** either the name of the property to set
                                                     or a list of properties as object key - value
--   `value` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the new value of the attribute (optional)
+-   `value` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the new value of the property (optional)
 
 **Examples**
 
 ```javascript
-import { set } from 'bianco.attr'
+import { set } from 'bianco.css'
 
 const img = document.createElement('img')
 
@@ -61,21 +61,21 @@ set(img, {
 })
 ```
 
-Returns **([HTMLElement](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) \| [NodeList](https://developer.mozilla.org/en-US/docs/Web/API/NodeList) \| [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array))** the original array of elements passed to this function
+Returns **([HTMLElement](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) \| [NodeList](https://developer.mozilla.org/en-US/docs/Web/API/NodeList) \| [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array))** the original array of elements passed to this function.
 
 ### get
 
-Get any attribute from a single or a list of DOM nodes
+Get any property from a single node or a list of DOM nodes.
 
 **Parameters**
 
 -   `els` **([HTMLElement](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) \| [NodeList](https://developer.mozilla.org/en-US/docs/Web/API/NodeList) \| [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array))** DOM node/s to parse
--   `names` **([String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array))** name or list of attributes to get
+-   `names` **([String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array))** name or list of properties to get
 
 **Examples**
 
 ```javascript
-import { get } from 'bianco.attr'
+import { get } from 'bianco.css'
 
 const img = document.createElement('img')
 
@@ -88,29 +88,29 @@ get(img, ['width', 'height']) // => {width: '200', height: '300'}
 get([img1, img2], ['width', 'height']) // => [{width: '200', height: '300'}, {width: '500', height: '200'}]
 ```
 
-Returns **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) \| [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String))** list of the attributes found
+Returns **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) \| [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String))** list of the properties found.
 
 ### remove
 
-Remove any attribute from a single or a list of DOM nodes
+Remove any css property from a single node or a list of DOM nodes.
 
 **Parameters**
 
 -   `els` **([HTMLElement](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) \| [NodeList](https://developer.mozilla.org/en-US/docs/Web/API/NodeList) \| [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array))** DOM node/s to parse
--   `names` **([String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array))** name or list of attributes to remove
+-   `names` **([String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array))** name or list of properties to remove
 
 **Examples**
 
 ```javascript
-import { remove } from 'bianco.attr'
+import { remove } from 'bianco.css'
 
-remove(img, 'width') // remove the width attribute
-
-// or also
-remove(img, ['width', 'height']) // remove the width and the height attribute
+remove(img, 'width') // remove the width property
 
 // or also
-remove([img1, img2], ['width', 'height']) // remove the width and the height attribute from both images
+remove(img, ['width', 'height']) // remove the width and the height property
+
+// or also
+remove([img1, img2], ['width', 'height']) // remove the width and the height property from both images
 ```
 
-Returns **([HTMLElement](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) \| [NodeList](https://developer.mozilla.org/en-US/docs/Web/API/NodeList) \| [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array))** the original array of elements passed to this function
+Returns **([HTMLElement](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) \| [NodeList](https://developer.mozilla.org/en-US/docs/Web/API/NodeList) \| [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array))** the original array of elements passed to this function.
