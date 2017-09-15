@@ -1,0 +1,127 @@
+import domToArray from 'bianco.dom-to-array'
+
+/**
+ * Normalize the return values, in case of a single value we avoid to return an array
+ * @param   { Array } values - list of values we want to return
+ * @returns { Array|String|Boolean } either the whole list of values or the single one found
+ * @private
+ */
+const normalize = values => values.length === 1 ? values[0] : values
+
+/**
+ * Sanitize the names of CSS properties
+ * @param   { String } name - The human-readable name of the CSS property
+ * @returns { String } the sanitized camel-case version
+ * @private
+ */
+const sanitizeName = name => name === 'float' ? 'cssFloat' : name.replace(/(.+)-(.)/, (s, m1, m2) => m1 + m2.toUpperCase())
+
+/**
+ * Parse all the nodes received to get/remove/check their attributes
+ * @param   { HTMLElement|NodeList|Array } els    - DOM node/s to parse
+ * @param   { String|Array }               names   - name or list of attributes
+ * @param   { String }                     value  - the value(s) that will be assigned
+ * @returns { HTMLElement|NodeList|Array } the original array of elements passed to this function
+ * @private
+ */
+function setStyles(els, names, value) {
+  const attrs = typeof names === 'object' ? names : { [names]: value }
+  const props = Object.entries(attrs)
+
+  domToArray(els).forEach(el => {
+    props.forEach(([prop, value]) => el.style[sanitizeName(prop)] = value)
+  })
+  return els
+}
+
+/**
+ * Set any attribute on a single or a list of DOM nodes
+ * @param   { HTMLElement|NodeList|Array } els   - DOM node/s to parse
+ * @param   { String|Object }              name  - either the name of the attribute to set
+ *                                                 or a list of properties as object key - value
+ * @param   { String }                     value - the new value of the attribute (optional)
+ * @returns { HTMLElement|NodeList|Array } the original array of elements passed to this function
+ *
+ * @example
+ *
+ * import { set } from 'bianco.attr'
+ *
+ * const img = document.createElement('img')
+ *
+ * set(img, 'width', 100)
+ *
+ * // or also
+ * set(img, {
+ *   width: 300,
+ *   height: 300
+ * })
+ *
+ */
+export function set(els, name, value) {
+  setStyles(els, name, value)
+  return els
+}
+
+/**
+ * Get any attribute from a single or a list of DOM nodes
+ * @param   { HTMLElement|NodeList|Array } els   - DOM node/s to parse
+ * @param   { String|Array }               names  - name or list of attributes to get
+ * @returns { Array|String } list of the attributes found
+ *
+ * @example
+ *
+ * import { get } from 'bianco.attr'
+ *
+ * const img = document.createElement('img')
+ *
+ * get(img, 'width') // => '200'
+ *
+ * // or also
+ * get(img, ['width', 'height']) // => {width: '200', height: '300'}
+ *
+ * // or also
+ * get([img1, img2], ['width', 'height']) // => [{width: '200', height: '300'}, {width: '500', height: '200'}]
+ */
+export function get(els, names) {
+  const attrs = Array.isArray(names) ? names : [names]
+
+  const result = domToArray(els).map(el => {
+    const style = window.getComputedStyle(el)
+    const reduced = attrs.reduce((list, prop) => { list[prop] = style[sanitizeName(prop)]; return list }, {})
+    return attrs.length > 1 ? reduced : reduced[names]
+  })
+
+  return result.length > 1 ? result : result[0]
+}
+
+/**
+ * Remove any attribute from a single or a list of DOM nodes
+ * @param   { HTMLElement|NodeList|Array } els   - DOM node/s to parse
+ * @param   { String|Array }               names  - name or list of attributes to remove
+ * @returns { HTMLElement|NodeList|Array } the original array of elements passed to this function
+ *
+ * @example
+ *
+ * import { remove } from 'bianco.attr'
+ *
+ * remove(img, 'width') // remove the width attribute
+ *
+ * // or also
+ * remove(img, ['width', 'height']) // remove the width and the height attribute
+ *
+ * // or also
+ * remove([img1, img2], ['width', 'height']) // remove the width and the height attribute from both images
+ */
+export function remove(els, names) {
+  names = Array.isArray(names) ? names : [names]
+  names = names.reduce((list, prop) => { list[prop] = ''; return list }, {})
+
+  setStyles(els, names)
+  return els
+}
+
+export default {
+  get,
+  set,
+  remove
+}
