@@ -16,18 +16,12 @@ This script will not be transpiled and it is only thought to be part of your bui
 import css from 'bianco.css'
 ```
 
-[travis-image]: https://img.shields.io/travis/biancojs/@.svg?style=flat-square
-
-[travis-url]: https://travis-ci.org/biancojs/@
-
+[travis-image]: https://img.shields.io/travis/biancojs/css.svg?style=flat-square
+[travis-url]: https://travis-ci.org/biancojs/css
 [license-image]: http://img.shields.io/badge/license-MIT-000000.svg?style=flat-square
-
-[license-url]: LICENSE.txt
-
+[license-url]: LICENSE
 [npm-version-image]: http://img.shields.io/npm/v/bianco.css.svg?style=flat-square
-
 [npm-downloads-image]: http://img.shields.io/npm/dm/bianco.css.svg?style=flat-square
-
 [npm-url]: https://npmjs.org/package/bianco.css
 
 ## API
