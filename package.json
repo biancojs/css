@@ -30,9 +30,9 @@
   },
   "homepage": "https://github.com/biancojs/css#readme",
   "devDependencies": {
-    "jsdom": "9.5.0",
-    "jsdom-global": "2.1.0",
-    "rollup-plugin-node-resolve": "^2.0.0"
+    "jsdom": "11.7.0",
+    "jsdom-global": "3.0.2",
+    "rollup-plugin-node-resolve": "^3.3.0"
   },
   "dependencies": {
     "bianco.dom-to-array": "0.0.8"
