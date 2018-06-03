@@ -1,8 +1,6 @@
 require('jsdom-global')()
 const assert = require('assert')
 const { set, get, remove } = require('./')
-const $ = require('./')
-const body = document.body
 
 describe('Bianco @', function() {
   it('it can set a style attribute', function() {

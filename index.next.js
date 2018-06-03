@@ -1,17 +1,9 @@
 import domToArray from 'bianco.dom-to-array'
 
 /**
- * Normalize the return values, in case of a single value we avoid to return an array
- * @param   { Array } values - list of values we want to return
- * @returns { Array|String|Boolean } either the whole list of values or the single one found.
- * @private
- */
-const normalize = values => values.length === 1 ? values[0] : values
-
-/**
  * Sanitize the names of CSS properties
- * @param   { String } name - The human-readable name of the CSS property
- * @returns { String } the sanitized camel-case version.
+ * @param   { string } name - The human-readable name of the CSS property
+ * @returns { string } the sanitized camel-case version.
  * @private
  */
 const sanitizeName = name => name === 'float' ? 'cssFloat' : name.replace(/(.+)-(.)/, (s, m1, m2) => m1 + m2.toUpperCase())
@@ -19,8 +11,8 @@ const sanitizeName = name => name === 'float' ? 'cssFloat' : name.replace(/(.+)-
 /**
  * Parse all the nodes received to get/remove/check their properties.
  * @param   { HTMLElement|NodeList|Array } els    - DOM node/s to parse
- * @param   { String|Array }               names   - name or list of properties
- * @param   { String }                     value  - the value(s) that will be assigned
+ * @param   { string|Array }               names   - name or list of properties
+ * @param   { string }                     value  - the value(s) that will be assigned
  * @returns { HTMLElement|NodeList|Array } the original array of elements passed to this function.
  * @private
  */
@@ -37,9 +29,9 @@ function setStyles(els, names, value) {
 /**
  * Set any css property on a single node or a list of DOM nodes.
  * @param   { HTMLElement|NodeList|Array } els   - DOM node/s to parse
- * @param   { String|Object }              name  - either the name of the property to set
+ * @param   { string|Object }              name  - either the name of the property to set
  *                                                 or a list of properties as object key - value
- * @param   { String }                     value - the new value of the property (optional)
+ * @param   { string }                     value - the new value of the property (optional)
  * @returns { HTMLElement|NodeList|Array } the original array of elements passed to this function.
  *
  * @example
@@ -65,8 +57,8 @@ export function set(els, name, value) {
 /**
  * Get any property from a single node or a list of DOM nodes.
  * @param   { HTMLElement|NodeList|Array } els   - DOM node/s to parse
- * @param   { String|Array }               names  - name or list of properties to get
- * @returns { Array|String } list of the properties found.
+ * @param   { string|Array }               names  - name or list of properties to get
+ * @returns { Array|string } list of the properties found.
  *
  * @example
  *
@@ -97,7 +89,7 @@ export function get(els, names) {
 /**
  * Remove any css property from a single node or a list of DOM nodes.
  * @param   { HTMLElement|NodeList|Array } els   - DOM node/s to parse
- * @param   { String|Array }               names  - name or list of properties to remove
+ * @param   { string|Array }               names  - name or list of properties to remove
  * @returns { HTMLElement|NodeList|Array } the original array of elements passed to this function.
  *
  * @example
