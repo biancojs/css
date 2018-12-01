@@ -6,10 +6,6 @@
 [![NPM downloads][npm-downloads-image]][npm-url]
 [![MIT License][license-image]][license-url]
 
-Modern css utils.
-
-This script will not be transpiled and it is only thought to be part of your build chain.
-
 ## Usage
 
 ```js
