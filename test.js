@@ -2,7 +2,7 @@ require('jsdom-global')()
 const assert = require('assert')
 const { set, get, remove } = require('./')
 
-describe('Bianco @', function() {
+describe('Bianco css', function() {
   it('it can set a style attribute', function() {
     const div = document.createElement('div')
     set(div, 'color', 'red')
