@@ -1,7 +1,6 @@
 # bianco.css
 
-[![Build Status][travis-image]][travis-url]
-
+[![Build Status][ci-image]][ci-url]
 [![NPM version][npm-version-image]][npm-url]
 [![NPM downloads][npm-downloads-image]][npm-url]
 [![MIT License][license-image]][license-url]
@@ -12,9 +11,8 @@
 import css from 'bianco.css'
 ```
 
-[travis-image]: https://img.shields.io/travis/biancojs/css.svg?style=flat-square
-
-[travis-url]: https://travis-ci.org/biancojs/css
+[ci-image]:https://img.shields.io/github/workflow/status/biancojs/css/test?style=flat-square
+[ci-url]:https://github.com/biancojs/css/actions
 
 [license-image]: http://img.shields.io/badge/license-MIT-000000.svg?style=flat-square
 
