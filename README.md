@@ -11,7 +11,7 @@
 import css from 'bianco.css'
 ```
 
-[ci-image]:https://img.shields.io/github/workflow/status/biancojs/css/test?style=flat-square
+[ci-image]:https://img.shields.io/github/actions/workflow/status/biancojs/css/test.yml?style=flat-square
 [ci-url]:https://github.com/biancojs/css/actions
 
 [license-image]: http://img.shields.io/badge/license-MIT-000000.svg?style=flat-square
